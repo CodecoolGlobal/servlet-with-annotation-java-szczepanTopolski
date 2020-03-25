@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WebShop</title>
+</head>
+<body style="background-color: blanchedalmond">
+<h1 style="font-weight:700; color:darkred">WebShop</h1>
+
+<table>
+    <tr>
+        <th>Nazwa</th>
+        <th>Cena</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for id in items %}
+        <tr class = "{{ id[0] }}">
+            <td>{{ id[1] }}</td>
+            <td>{{ id[2] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<div class = "get--store">Back to store!</div>
+<script>
+    const xmlHttpRequest = new XMLHttpRequest();
+    const redirectBtn = document.querySelector(".get--store");
+    redirectBtn.addEventListener("click",()=>{
+        window.location.replace("/webshop")
+    });
+</script>
+</body>
+</html>
