@@ -32,6 +32,15 @@ public class ShoppingCartServlet extends HttpServlet {
         JtwigTemplate template = JtwigTemplate.classpathTemplate("templates/userCards.twig");
         JtwigModel model = JtwigModel.newModel();
         model.with("items",items);
+        model.with("price", sumItemsCost());
         return template.render(model);
+    }
+
+    private int sumItemsCost(){
+        int sum = 0 ;
+        for(Item item: Card.items){
+            sum += item.price;
+        }
+        return sum;
     }
 }
